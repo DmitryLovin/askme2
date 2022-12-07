@@ -1,11 +1,12 @@
 .message {
   border: 1px solid #e0e0e0;
   padding: 15px 10px;
+  border-radius: 10px;
 }
 
 .message-notice {
-  background-color: #ffeec2;
-  border-color: #ffba08;
+  background-color: #e3ffc2;
+  border-color: #9bff08;
 }
 
 .message-alert {

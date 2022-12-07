@@ -2,11 +2,12 @@
 .form-text-field {
   border: 1px solid #d0d0d0;
   padding: 7.5px 10px;
+  border-radius: 8px;
 }
 
 .form-text-area:focus,
 .form-text-field:focus {
-  background-color: #FEE9C3;
+  background-color: #B7DFEE;
   outline-width: 0;
 }
 

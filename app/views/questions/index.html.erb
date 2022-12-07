@@ -4,7 +4,7 @@
   </p>
 
   <p class="mt">
-    <%= render "form", question: @question %>
+    <%= render "form", question: @question, main: true %>
   </p>
 </div>
 
@@ -15,7 +15,7 @@
   </h2>
 </div>
 <% @questions.each do |question| %>
-  <div class="mt-sm container">
+  <div class="mt-sm container <%= "hidden" if question.hidden? %>">
     <%= render "question", question: question %>
   </div>
 <% end %>

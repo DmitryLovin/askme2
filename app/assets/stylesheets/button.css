@@ -1,13 +1,23 @@
 .button {
   border: 0;
-  border-radius: 3px;
+  border-radius: 8px;
   color: #fff;
   display: inline-block;
   font-size: 14px;
   padding: 8px 13px 7px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .button-main {
-  background-color: #9D0208;
+  background-color: #47B5FF;
+}
+
+.btn-icon {
+  display: inline-block;
+}
+
+.btn-icon:hover {
+  -webkit-transform: scale(1.15);
+  transition: all ease .1s;
 }

@@ -1,10 +1,10 @@
 body {
-  color: #03071E;
+  color: #06283D;
   font-family: 'Trebuchet MS', sans-serif;
 }
 
 a, button {
-  color: #DC2F02;
+  color: #47B5FF;
 }
 
 .title-lg {
@@ -24,7 +24,7 @@ a, button {
 }
 
 .text-grey {
-  color: #a0a0a0
+  color: #256D85
 }
 
 .hidden {

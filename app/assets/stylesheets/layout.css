@@ -1,5 +1,5 @@
 body {
-  background: #03071E;
+  background: #fff;
   display: flex;
   justify-content: center;
 }
@@ -11,6 +11,7 @@ body {
 }
 
 .container {
-  background: #fff;
+  background: #DFF6FF;
+  border-radius: 10px;
   padding: 20px;
 }
