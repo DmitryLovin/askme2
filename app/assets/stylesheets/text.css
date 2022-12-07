@@ -16,11 +16,15 @@ a, button {
 }
 
 .title-sm {
-  font-size: 125;
+  font-size: 125%;
 }
 
 .text-sm {
   font-size: 80%;
+}
+
+.text-grey {
+  color: #a0a0a0
 }
 
 .hidden {
