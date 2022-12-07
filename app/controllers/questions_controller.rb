@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[update show destroy edit hide]
+  before_action :set_question, only: %i[update show destroy edit]
   def create 
     question = Question.create(question_params)
 
@@ -34,6 +34,7 @@ class QuestionsController < ApplicationController
   end
 
   def hide
+    @question = Question.find(params[:question_id])
     @question.update(hidden: true)
 
     redirect_to questions_path, notice: "Вопрос успешно скрыт!"
