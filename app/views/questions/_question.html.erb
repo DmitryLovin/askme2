@@ -17,7 +17,7 @@
     </div>
     <% unless question.hidden? %>
       <div class="btn-icon">
-        <%= button_to fa_icon("eye-slash"), hide_question_path(question), method: "put", title: "Скрыть вопрос",
+        <%= button_to fa_icon("eye-slash"), question_hide_path(question), method: "put", title: "Скрыть вопрос",
                       class: "btn-icon",
                       form: {data: {turbo_confirm: "Точно скрыть вопрос?"}}%>
       </div>
