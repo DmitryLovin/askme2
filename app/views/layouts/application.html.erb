@@ -18,8 +18,9 @@
       <p class="mb message message-alert"><%= flash[:alert] %></p>
       <% end %>
 
-      <div class="navbar mb-sm">
+      <div class="navbar mb-sm" style=<%= style_with_color %>>
         <p class="title-sm text-bold"><%= link_to "Ask me!", root_path %></p>
+
         <div>
           <% if current_user.present? %>
             <%= formatted_nickname(current_user) %>
@@ -32,10 +33,14 @@
             <%= link_to "Регистрация", new_user_path, class: "button button-navbar mr-sm" %>
             <%= link_to "Вход", new_session_path, class: "button button-navbar" %>
           <% end %>
+          <div class="mr-sm ml-sm btn-icon">
+            <%= button_to fa_icon("paint-brush"), edit_page_style_path,
+                          method: :get,
+                          title: "Редактировать стиль страницы",
+                          class: "btn-icon"%>
+          </div>
         </div>
       </div>
-
-
       <%= yield %>
     </div>
   </body>
