@@ -13,6 +13,11 @@
   background-color: #47B5FF;
 }
 
+.button-main:hover {
+  background-color: #0096FB;
+  transition: all ease .2s;
+}
+
 .button-navbar {
   border: 1px solid #06283D;
   color: #06283D;
@@ -20,6 +25,16 @@
 
 .button-navbar:hover {
   background-color: #F0FBFF;
+  transition: all ease .2s;
+}
+
+.button-red {
+  background-color: #FF9A9A;
+
+}
+
+.button-red:hover {
+  background-color: #F96969;
   transition: all ease .2s;
 }
 

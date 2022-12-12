@@ -31,3 +31,12 @@ body {
   color: #06283D;
   text-decoration: none;
 }
+
+.errors {
+  background-color: #b6ebff;
+  width: fit-content;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  color: #aa5757;
+  font-size: .8em;
+}
