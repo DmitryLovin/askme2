@@ -22,7 +22,7 @@
         <p class="title-sm text-bold"><%= link_to "Ask me!", root_path %></p>
         <div>
           <% if current_user.present? %>
-            <%= "@#{current_user.nickname}" %>
+            <%= formatted_nickname(current_user) %>
 
             <span class="ml-tiny mr-sm">
               <%= button_to fa_icon('sign-out'), session_path, method: :delete,
