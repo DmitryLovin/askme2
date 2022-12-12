@@ -6,12 +6,28 @@ body {
 
 .wrapper {
   max-width: 800px;
-  margin: 40px;
+  margin: 10px 40px 40px 40px;
   width: 100%;
+}
+
+.container, .navbar {
+  padding: 10px;
 }
 
 .container {
   background: #DFF6FF;
   border-radius: 10px;
-  padding: 20px;
+}
+
+.navbar {
+  align-items: center;
+  background-color: #DFF6FF;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: #06283D;
+  text-decoration: none;
 }

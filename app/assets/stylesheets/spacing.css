@@ -21,3 +21,23 @@
 .mb-lg {
   margin-bottom: 1.75rem;
 }
+
+.mr-sm {
+  margin-right: .6em;
+}
+
+.mr, .mr-md {
+  margin-right: 1em;
+}
+
+.mr-lg {
+  margin-right: 1.75em;
+}
+
+.mr-sm {
+  margin-left: .6em;
+}
+
+.ml-tiny {
+  margin-left: 0.3em;
+}

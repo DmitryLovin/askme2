@@ -27,6 +27,10 @@ a, button {
   color: #256D85
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 .hidden {
   opacity: 50%;
 }
