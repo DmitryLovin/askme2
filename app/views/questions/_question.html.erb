@@ -1,5 +1,7 @@
 <div class="mb-sm">
-  <%= question.body %>
+  <% split_lines(question).each do |line| %>
+    <p><%= line %></p>
+  <% end %>
 </div>
 <div class="text-sm question-footer">
   <div class="text-grey">
