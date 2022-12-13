@@ -13,9 +13,13 @@
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
-    <% if with_user %>
+    <% unless @user %>
       for
       <%= link_to formatted_nickname(question.user), user_path(question.user) %>
+    <% end %>
+    <% if question.author.present? %>
+      by
+      <%= link_to formatted_nickname(question.author), user_path(question.author) %>
     <% end %>
   </div>
 

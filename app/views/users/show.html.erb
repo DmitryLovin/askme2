@@ -30,6 +30,6 @@
 </div>
 <% @questions.each do |question| %>
   <div class="mt-sm container <%= "hidden" if question.hidden? %>">
-    <%= render question, with_user: false %>
+    <%= render question %>
   </div>
 <% end %>

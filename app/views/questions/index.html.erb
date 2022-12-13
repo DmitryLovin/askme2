@@ -6,6 +6,6 @@
 </div>
 <% @questions.each do |question| %>
   <div class="mt-sm container <%= "hidden" if question.hidden? %>">
-    <%= render "question", question: question, with_user: true %>
+    <%= render question %>
   </div>
 <% end %>
