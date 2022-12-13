@@ -11,21 +11,22 @@
   </p>
 </div>
 
-<div class="container">
+<div class="container mt-sm">
+  <% count = @questions.count %>
+  <% if count > 0 %>
+    <h2 class="title-lg">
+      Этому пользователю задали
+      <%= count = @questions.count %>
+      <%= inclination(count, "вопрос", "вопроса", "вопросов") %>
+    </h2>
+  <% else %>
+    <h2 class="title-sm">
+      У этого пользователя пока ещё нет вопросов, поспешите задать первый!"
+    </h2>
+  <% end %>
   <p class="mt">
     <%= link_to "Задать вопрос", new_question_path(user_id: @user.id), class: 'button button-main' %>
   </p>
-
-  <p class="mt">
-    <%= render "questions/form", question: @question, main: true%>
-  </p>
-</div>
-
-<div class="container mt-sm">
-  <h2 class="title-lg">
-    <%= count = @questions.count %>
-    <%= inclination(count, "вопрос", "вопроса", "вопросов") %>
-  </h2>
 </div>
 <% @questions.each do |question| %>
   <div class="mt-sm container <%= "hidden" if question.hidden? %>">
