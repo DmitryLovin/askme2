@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   before_save :downcase_nickname
 
+  has_many :questions, dependent: :delete_all
+
   validates :nickname,
             presence: true,
             uniqueness: true,

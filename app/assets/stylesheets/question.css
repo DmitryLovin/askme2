@@ -4,3 +4,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.answer-box {
+  border: 1px solid #b1d6e8;
+  border-radius: 5px;
+  padding: 1px 3px;
+  background-color: #f4fbff;
+  font-size: .85em;
+}

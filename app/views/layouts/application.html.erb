@@ -23,8 +23,7 @@
 
         <div>
           <% if current_user.present? %>
-            <%= formatted_nickname(current_user) %>
-
+            <%= link_to formatted_nickname(current_user), user_path(current_user) %>
             <span class="ml-tiny mr-sm">
               <%= button_to fa_icon('sign-out'), session_path, method: :delete,
                             class: "btn-icon", title: "Выход" %>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update destroy]
-
+  before_action :set_user, only: %i[destroy edit show update]
+  before_action :authorize_user, only: %i[destroy edit update]
   def create
     @user = User.new(user_params)
 
@@ -20,9 +20,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def show
+    @questions = @user.questions
+    @question = Question.new(user: @user)
+  end
+
   def update
     if @user.update(user_params)
-      redirect_to root_path, notice: "Данные пользователя обновлены"
+      redirect_to user_path(@user), notice: "Данные пользователя обновлены"
     else
       flash.now[:alert] = "При попытке сохранения пользователя возникла ошибка!"
       render :edit
@@ -47,5 +52,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def authorize_user
+    redirect_with_alert unless current_user == @user
   end
 end

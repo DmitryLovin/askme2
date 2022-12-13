@@ -3,27 +3,38 @@
     <p><%= line %></p>
   <% end %>
 </div>
+
+<% if question.answer.present? %>
+  <div class="answer-box mb-sm">
+    <%= question.answer %>
+  </div>
+<% end %>
+
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
   </div>
 
-  <div>
-    <div class="btn-icon">
-      <%= link_to fa_icon("pencil"), edit_question_path(question), title: "Изменить вопрос"%>
-    </div>
-    <div class="btn-icon">
-      <%= button_to fa_icon("trash-o"), question_path(question), method: :delete, title: "Удалить вопрос",
-                    class: "btn-icon",
-                    form: {data: {turbo_confirm: "Точно удалить вопрос?"}}%>
-    </div>
-    <% unless question.hidden? %>
+  <% if current_user == question.user %>
+    <div>
       <div class="btn-icon">
-        <%= button_to fa_icon("eye-slash"), hide_question_path(question), method: "put", title: "Скрыть вопрос",
-                      class: "btn-icon",
-                      form: {data: {turbo_confirm: "Точно скрыть вопрос?"}}%>
+        <% edit_icon = (question.answer.present? ? "pencil" : "reply") %>
+        <% edit_title = (question.answer.present? ? "Изменить вопрос" : "Ответить") %>
+        <%= link_to fa_icon(edit_icon), edit_question_path(question), title: edit_title%>
       </div>
-    <% end %>
-  </div>
+      <div class="btn-icon">
+        <%= button_to fa_icon("trash-o"), question_path(question), method: :delete, title: "Удалить вопрос",
+                      class: "btn-icon",
+                      form: {data: {turbo_confirm: "Точно удалить вопрос?"}}%>
+      </div>
+      <% unless question.hidden? %>
+        <div class="btn-icon">
+          <%= button_to fa_icon("eye-slash"), hide_question_path(question), method: "put", title: "Скрыть вопрос",
+                        class: "btn-icon",
+                        form: {data: {turbo_confirm: "Точно скрыть вопрос?"}}%>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
