@@ -5,6 +5,11 @@
   justify-content: space-between;
 }
 
+.question-footer a {
+  text-decoration: none;
+  color: #06283D;
+}
+
 .answer-box {
   border: 1px solid #b1d6e8;
   border-radius: 5px;

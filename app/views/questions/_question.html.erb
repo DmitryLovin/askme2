@@ -13,6 +13,10 @@
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
+    <% if with_user %>
+      for
+      <%= link_to formatted_nickname(question.user), user_path(question.user) %>
+    <% end %>
   </div>
 
   <% if current_user == question.user %>
@@ -20,7 +24,7 @@
       <div class="btn-icon">
         <% edit_icon = (question.answer.present? ? "pencil" : "reply") %>
         <% edit_title = (question.answer.present? ? "Изменить вопрос" : "Ответить") %>
-        <%= link_to fa_icon(edit_icon), edit_question_path(question), title: edit_title%>
+        <%= button_to fa_icon(edit_icon), edit_question_path(question), title: edit_title, method: :get%>
       </div>
       <div class="btn-icon">
         <%= button_to fa_icon("trash-o"), question_path(question), method: :delete, title: "Удалить вопрос",
