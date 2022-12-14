@@ -6,20 +6,18 @@ body {
 
 .wrapper {
   max-width: 800px;
-  margin: 10px 40px 40px 40px;
+  margin: 10px 20px 30px 20px;
   width: 100%;
 }
 
-.container, .navbar {
-  padding: 10px;
-}
-
 .container {
+  padding: 10px;
   background: #DFF6FF;
   border-radius: 10px;
 }
 
 .navbar {
+  padding: 5px;
   align-items: center;
   background-color: #DFF6FF;
   border-radius: 10px;
@@ -30,6 +28,12 @@ body {
 .navbar a {
   color: #06283D;
   text-decoration: none;
+}
+
+.navbar .logo {
+  font-family: "Shadows";
+  margin-left: 5px;
+  font-size: 175%;
 }
 
 .errors {

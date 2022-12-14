@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Askme</title>
+    <title>Ask me!</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= favicon_link_tag asset_path("favicon.ico") %>
   </head>
 
   <body>
@@ -19,7 +20,7 @@
       <% end %>
 
       <div class="navbar mb-sm" style=<%= style_with_color %>>
-        <p class="title-sm text-bold"><%= link_to "Ask me!", root_path %></p>
+        <p class="logo title-sm text-bold"><%= link_to "Ask me!", root_path %></p>
 
         <div>
           <% if current_user.present? %>
