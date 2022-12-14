@@ -1,11 +1,14 @@
-<div class="container user-box mb-sm">
+<% user_bg_color = @user.color %>
+<% text_color = text_color(user_bg_color) %>
+<div class="container user-box mb-sm" style="background-color:<%= user_bg_color %>;color:<%= text_color %>;">
   <h2 class="title-lg mt-lg"><%= @user.name %></h2>
   <p class="text-bold mt mb-lg">
     <%= formatted_nickname(@user) %>
     <% if current_user == @user %>
     <span class="ml-tiny mr-sm">
               <%= link_to fa_icon('pencil'), edit_user_path,
-                          class: "btn-icon", title: "Редактировать" %>
+                          class: "btn-icon", title: "Редактировать",
+                          style: "color:#{text_color};" %>
     </span>
     <% end %>
   </p>

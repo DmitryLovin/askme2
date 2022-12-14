@@ -17,6 +17,9 @@
       <p class="mt-sm"><%= form.label :nickname, "Ник на сайте" %></p>
       <p><%= form.text_field :nickname, class: "form-text-field" %></p>
 
+      <p class="mt-sm"><%= form.label :color, "Цвет фона пользователя" %></p>
+      <p><%= form.color_field :color %></p>
+
       <p class="mt-lg text-sm">Если не хотите менять пароль — оставте эти поля пустыми.</p>
       <p class="mt-sm"><%= form.label :password, "Пароль" %></p>
       <p><%= form.password_field :password, class: "form-text-field" %></p>

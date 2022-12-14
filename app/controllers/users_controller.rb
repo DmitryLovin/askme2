@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user.color = "#DFF6FF" unless @user.color.present?
   end
 
   def show
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :name, :nickname, :email, :password, :password_confirmation
+      :name, :nickname, :email, :color, :password, :password_confirmation
     )
   end
 

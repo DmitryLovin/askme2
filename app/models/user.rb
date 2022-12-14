@@ -16,6 +16,10 @@ class User < ApplicationRecord
             uniqueness: true,
             format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  validates :color,
+            allow_blank: true,
+            format: { with: /\A#[0-9a-f]{6}\z/i}
+
   def downcase_nickname
     nickname.downcase!
   end
