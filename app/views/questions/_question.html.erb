@@ -1,12 +1,14 @@
 <div class="mb-sm">
-  <% split_lines(question).each do |line| %>
+  <% split_lines(question.body).each do |line| %>
     <p><%= line %></p>
   <% end %>
 </div>
 
 <% if question.answer.present? %>
   <div class="answer-box mb-sm">
-    <%= question.answer %>
+    <% split_lines(question.answer).each do |line| %>
+      <p><%= line %></p>
+    <% end %>
   </div>
 <% end %>
 
