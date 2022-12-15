@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   validates :color,
             allow_blank: true,
-            format: { with: /\A#[0-9a-f]{6}\z/i}
+            format: { with: /\A#[0-9a-f]{6}\z/i }
 
   def downcase_nickname
     nickname.downcase!

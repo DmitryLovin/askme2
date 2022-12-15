@@ -6,11 +6,7 @@ module UsersHelper
   def text_color(color)
     if color
       hsl = Color::RGB.by_hex(color).to_hsl
-      if hsl.brightness > 0.5
-        hsl.lightness = 15
-      else
-        hsl.lightness= 85
-      end
+      hsl.lightness = hsl.brightness > 0.5 ? 15 : 85
       hsl.html
     end
   end
