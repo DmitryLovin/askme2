@@ -5,34 +5,15 @@
 }
 
 .users-box-user {
-  flex-basis: 100px;
+  flex-basis: 64px;
   flex-grow: 0;
-  height: 100px;
-  line-height: 100px;
+  height: 64px;
+  line-height: 64px;
   text-align: center;
+  border: 3px solid #DFF6FF;
 }
 
 .users-box-user a {
   color: #FFFFFF;
   text-decoration: none;
-}
-
-.users-box-user-bg0 {
-  background: #006400;
-}
-
-.users-box-user-bg1 {
-  background: #256D85;
-}
-
-.users-box-user-bg2 {
-  background: #730E15;
-}
-
-.users-box-user-bg3 {
-  background: #DA70D6;
-}
-
-.users-box-user-bg4 {
-  background: #FF8C00;
 }

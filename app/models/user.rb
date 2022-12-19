@@ -20,6 +20,9 @@ class User < ApplicationRecord
             allow_blank: true,
             format: { with: /\A#[0-9a-f]{6}\z/i }
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 64, default: "retro")
+
   def downcase_nickname
     nickname.downcase!
   end
