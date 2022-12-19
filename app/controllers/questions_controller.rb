@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @question.author_id = current_user.id if current_user.present?
 
     if @question.save
-      redirect_to user_path(@question.user), notice: "Вопрос успешно создан!"
+      redirect_to user_path(@question.user.nickname), notice: "Вопрос успешно создан!"
     else
       flash.now[:alert] = "Ошибка при создании вопроса!"
       render :new
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   def update
     question_params = params.require(:question).permit(:body, :answer)
     if @question.update(question_params)
-      redirect_to user_path(@question.user), notice: "Вопрос успешно изменён!"
+      redirect_to user_path(@question.user.nickname), notice: "Вопрос успешно изменён!"
     else
       flash.now[:alert] = "Не удалось сохранить изменения в вопросе!"
       render :edit
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
     @user = @question.user
     @question.destroy
 
-    redirect_to user_path(@user), notice: "Вопрос успешно удалён!"
+    redirect_to user_path(@user.nickname), notice: "Вопрос успешно удалён!"
   end
 
   def show
@@ -38,8 +38,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(created_at: :desc).last(10)
-    @users = User.order(created_at: :desc).last(10)
+    @questions = Question.order(created_at: :desc).first(10)
+    @users = User.order(created_at: :desc).first(10)
   end
 
   def new
@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
   def hide
     @question.update(hidden: true)
 
-    redirect_to questions_path, notice: "Вопрос успешно скрыт!"
+    redirect_to user_path(@question.user.nickname), notice: "Вопрос успешно скрыт!"
   end
 
   private

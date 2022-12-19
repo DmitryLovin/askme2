@@ -14,6 +14,16 @@
 }
 
 .users-box-user a {
+  width: 64px;
+  height: 64px;
   color: #FFFFFF;
   text-decoration: none;
+  display: inline-block;
+  background-position: center;
+  background-size: 100%;
+}
+
+.users-box-user a:hover {
+  background-size: 105%;
+  transition: all ease .1s;
 }

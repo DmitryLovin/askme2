@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :page_style, only: %i[edit update]
   resource :session, only: %i[new create destroy]
-  resources :users, except: %i[index]
+  resources :users, param: :nickname, except: %i[index]
 end

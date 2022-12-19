@@ -1,11 +1,13 @@
 <% background_class = "users-box-user-bg#{user.id % 5}" %>
 
 <div class="users-box-user rounded mr ml"
-  <% if user.color.present? %>
-    style="border:3px solid <%= user.color %>;"
-  <% end %>
->
-  <a href="<%= user_path(user) %>">
-    <%= image_tag user.gravatar_url, title: "@#{user.nickname}", class: "rounded" %>
+     <% if user.color.present? %>
+     style="border:3px solid <%= user.color %>;"
+     <% end %>
+     >
+  <a href="<%= user_path(user.nickname) %>"
+     title="@<%= user.nickname %>"
+     class="rounded"
+     style=<%= "background-image:url(#{user.gravatar_url});" %>/>
   </a>
 </div>

@@ -17,11 +17,11 @@
     <%= l(question.created_at, format: :short) %>
     <% unless @user %>
       for
-      <%= link_to formatted_nickname(question.user), user_path(question.user) %>
+      <%= link_to formatted_nickname(question.user), user_path(question.user.nickname) %>
     <% end %>
     <% if question.author.present? %>
       by
-      <%= link_to formatted_nickname(question.author), user_path(question.author) %>
+      <%= link_to formatted_nickname(question.author), user_path(question.author.nickname) %>
     <% end %>
   </div>
 
