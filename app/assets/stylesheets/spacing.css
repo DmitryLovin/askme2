@@ -42,6 +42,14 @@
   margin-left: .6em;
 }
 
+.ml, ml-md {
+  margin-left: 1em;
+}
+
+.ml-lg {
+  margin-left: 1.75em;
+}
+
 .ml-tiny {
   margin-left: .3em;
 }
