@@ -28,7 +28,7 @@
         <div>
           <% if current_user.present? %>
             <%= link_to formatted_nickname(current_user),
-                        user_path(current_user.nickname),
+                        user_path(current_user),
                         style: "color:#{text_color};"%>
             <span class="ml-tiny mr-sm">
               <%= button_to fa_icon('sign-out'), session_path, method: :delete,

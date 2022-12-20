@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user.nickname), notice: "Данные пользователя обновлены"
+      redirect_to user_path(@user), notice: "Данные пользователя обновлены"
     else
       flash.now[:alert] = "При попытке сохранения пользователя возникла ошибка!"
       render :edit
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by(nickname: params[:nickname])
+    @user = User.find_by!(nickname: params[:nickname])
   end
 
   def authorize_user
