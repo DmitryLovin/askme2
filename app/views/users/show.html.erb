@@ -29,7 +29,7 @@
     </h2>
   <% end %>
   <p class="mt">
-    <%= link_to "Задать вопрос", new_question_path(user_id: @user.id), class: 'button button-main' %>
+    <%= link_to "Задать вопрос", new_question_path(user_nickname: @user.nickname), class: 'button button-main' %>
   </p>
 </div>
 <% @questions.each do |question| %>
