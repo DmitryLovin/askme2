@@ -11,12 +11,23 @@
 </div>
 
 <div class="container mt-sm">
+  <h2 class="title-lg mb-sm">
+    Облако #Хэш_Тегов
+  </h2>
+  <%= render @hash_tags %>
+</div>
+
+<div class="container mt-sm">
   <h2 class="title-lg">
-    <% count = @questions.count %>
-    <%= inclination(count, "Последний", "Последние", "Последние") %>
-    <%= count %>
-    <%= inclination(count, "вопрос", "вопроса", "вопросов") %>
-    на сайте
+    <% if @hash_tag.present? %>
+      Все вопросы с хэштэгом <%= @hash_tag %>
+    <% else %>
+      <% count = @questions.count %>
+      <%= inclination(count, "Последний", "Последние", "Последние") %>
+      <%= count %>
+      <%= inclination(count, "вопрос", "вопроса", "вопросов") %>
+      на сайте
+  <% end %>
   </h2>
 </div>
 <% @questions.each do |question| %>

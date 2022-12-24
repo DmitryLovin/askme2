@@ -1,13 +1,21 @@
 <div class="mb-sm">
   <% split_lines(question.body).each do |line| %>
-    <p><%= line %></p>
+    <p>
+      <% with_tags(line).each do |element| %>
+      <%= render_element(element) %>
+      <% end %>
+    </p>
   <% end %>
 </div>
 
 <% if question.answer.present? %>
   <div class="answer-box mb-sm">
     <% split_lines(question.answer).each do |line| %>
-      <p><%= line %></p>
+      <p>
+        <% with_tags(line).each do |element| %>
+          <%= render_element(element) %>
+        <% end %>
+      </p>
     <% end %>
   </div>
 <% end %>

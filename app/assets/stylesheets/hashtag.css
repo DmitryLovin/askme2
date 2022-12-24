@@ -1,0 +1,28 @@
+.hash-tag {
+  margin: 2px 4px;
+}
+
+.hash-tag a {
+  background-color: #47B5FF;
+  border-radius: 10px;
+  padding: 2px 5px;
+  color: #f4fbff;
+  text-decoration: none;
+}
+
+.hash-tag a:hover {
+  color: #cfeeff;
+  transition: all ease .2s;
+}
+
+.in-text-hash-tag {
+  background-color: #47B5FF00;
+  border-radius: 5px;
+  padding: 0px 2px;
+  text-decoration: none;
+}
+
+.in-text-hash-tag:hover {
+  background-color: #47B5FF21;
+  transition: all ease .2s;
+}

@@ -8,6 +8,7 @@ gem "bootsnap", require: false
 gem "color"
 gem "font-awesome-rails"
 gem "gravtastic"
+gem "hashtag_parser"
 gem "importmap-rails"
 gem "jbuilder"
 gem "puma", "~> 5.0"
