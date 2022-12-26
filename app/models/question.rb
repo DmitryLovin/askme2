@@ -13,7 +13,7 @@ class Question < ApplicationRecord
             length: { maximum: 240 }
 
   def save_new_tags(tags = [])
-    hashtags = body.gsub(/#[[:alpha:]]+\w+/).map { |match| match.delete("#").downcase }
+    hashtags = body.gsub(/#[[:alpha:]][[:word:]]+/).map { |match| match.delete("#").downcase }
     hashtags.concat(tags)
     hashtags.uniq!
 
@@ -22,7 +22,7 @@ class Question < ApplicationRecord
 
   def update_tags
     self.tags.clear
-    hashtags = answer.gsub(/#[[:alpha:]]+\w+/).map { |match| match.delete("#").downcase }
+    hashtags = answer.gsub(/#[[:alpha:]][[:word:]]+/).map { |match| match.delete("#").downcase }
     save_new_tags(hashtags)
   end
 end
