@@ -34,3 +34,7 @@ a, button {
 .hidden {
   opacity: 50%;
 }
+
+.text-center {
+  text-align: center;
+}

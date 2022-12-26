@@ -38,15 +38,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @hash_tags = HashTag.order(:text).select { |tag| tag.questions.any? }
-    @hash_tag = HashTag.find_by(text: params[:hash_tag])
+    @hash_tags = HashTag.joins(:question_tags).distinct.order(:text)
 
-    @questions =
-      if @hash_tag.present?
-        @hash_tag.questions.order(created_at: :desc)
-      else
-        Question.order(created_at: :desc).first(10)
-      end
+    @questions = Question.order(created_at: :desc).first(10)
 
     @users = User.order(created_at: :desc).first(10)
   end

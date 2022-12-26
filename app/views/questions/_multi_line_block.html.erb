@@ -1,0 +1,7 @@
+<% split_lines(block).each do |line| %>
+  <p>
+    <% parse_tags(line).each do |element| %>
+      <%= element %>
+    <% end %>
+  </p>
+<% end %>

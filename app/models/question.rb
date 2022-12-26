@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
-  before_commit :save_new_tags, on: :create
-  before_commit :update_tags, on: :update
+  after_commit :save_new_tags, on: :create
+  after_commit :update_tags, on: :update
 
   belongs_to :user
   belongs_to :author, class_name: "User", optional: true
@@ -12,20 +12,17 @@ class Question < ApplicationRecord
             presence: true,
             length: { maximum: 240 }
 
-  def save_new_tags
-    hashtags = HashtagParser.parse(body)
-    hashtags.uniq! { |tag| tag[:text].downcase }
+  def save_new_tags(tags = [])
+    hashtags = body.gsub(/#[[:alpha:]]+\w+/).map { |match| match.delete("#").downcase }
+    hashtags.concat(tags)
+    hashtags.uniq!
 
-    self.tags = hashtags.map { |tag| HashTag.find_or_create_by(text: tag[:text].downcase) }
+    self.tags = hashtags.map { |tag| HashTag.find_or_create_by(text: tag) }
   end
 
   def update_tags
     self.tags.clear
-
-    hashtags = HashtagParser.parse(body)
-    hashtags.concat(HashtagParser.parse(answer)) if answer.present?
-    hashtags.uniq! { |tag| tag[:text].downcase }
-
-    self.tags = hashtags.map { |tag| HashTag.find_or_create_by(text: tag[:text].downcase) }
+    hashtags = answer.gsub(/#[[:alpha:]]+\w+/).map { |match| match.delete("#").downcase }
+    save_new_tags(hashtags)
   end
 end

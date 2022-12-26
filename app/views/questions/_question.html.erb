@@ -1,22 +1,14 @@
+<p class="mb text-sm text-grey">
+  Вопрос <%= link_to "##{question.id}", question_path(question) %>
+</p>
+
 <div class="mb-sm">
-  <% split_lines(question.body).each do |line| %>
-    <p>
-      <% with_tags(line).each do |element| %>
-      <%= render_element(element) %>
-      <% end %>
-    </p>
-  <% end %>
+  <%= render partial: "questions/multi_line_block", locals: {block: question.body} %>
 </div>
 
 <% if question.answer.present? %>
   <div class="answer-box mb-sm">
-    <% split_lines(question.answer).each do |line| %>
-      <p>
-        <% with_tags(line).each do |element| %>
-          <%= render_element(element) %>
-        <% end %>
-      </p>
-    <% end %>
+    <%= render partial: "questions/multi_line_block", locals: {block: question.answer} %>
   </div>
 <% end %>
 
