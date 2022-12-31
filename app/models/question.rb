@@ -1,6 +1,5 @@
 class Question < ApplicationRecord
-  after_commit :save_new_tags, on: :create
-  after_commit :update_tags, on: :update
+  after_commit :save_new_tags, on: %i[ create update ]
 
   belongs_to :user
   belongs_to :author, class_name: "User", optional: true
@@ -13,16 +12,13 @@ class Question < ApplicationRecord
             length: { maximum: 240 }
 
   def save_new_tags(tags = [])
-    hashtags = body.gsub(/#[[:alpha:]][[:word:]]+/).map { |match| match.delete("#").downcase }
-    hashtags.concat(tags)
+    self.tags.clear if self.tags.any?
+
+    hashtags = body.gsub(HashTag::REGEX)
+    hashtags += answer.gsub(HashTag::REGEX) if answer.present?
+    hashtags = hashtags.map { |match| match.delete("#").downcase }
     hashtags.uniq!
 
     self.tags = hashtags.map { |tag| HashTag.find_or_create_by(text: tag) }
-  end
-
-  def update_tags
-    self.tags.clear
-    hashtags = answer.gsub(/#[[:alpha:]][[:word:]]+/).map { |match| match.delete("#").downcase }
-    save_new_tags(hashtags)
   end
 end

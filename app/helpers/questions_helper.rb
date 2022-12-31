@@ -4,8 +4,8 @@ module QuestionsHelper
   end
 
   def parse_tags(line)
-    line.split(/(#[[:alpha:]][[:word:]]+)/).map do |element|
-      if element.match(/#[[:alpha:]][[:word:]]+/)
+    line.split(HashTag::REGEX).map do |element|
+      if element.match(HashTag::REGEX)
         link_to(element, hash_tag_path(element.delete("#")), class: "in-text-hash-tag")
       else
         element
