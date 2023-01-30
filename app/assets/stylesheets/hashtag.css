@@ -1,5 +1,6 @@
 .hash-tag {
-  margin: 2px 4px;
+  display: inline-block;
+  margin: 3px 1px;
 }
 
 .hash-tag a {
