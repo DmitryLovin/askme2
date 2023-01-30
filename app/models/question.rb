@@ -11,14 +11,14 @@ class Question < ApplicationRecord
             presence: true,
             length: { maximum: 240 }
 
-  def save_new_tags(tags = [])
+  private
+
+  def save_new_tags
     self.tags.clear if self.tags.any?
 
-    hashtags = body.gsub(HashTag::REGEX)
-    hashtags += answer.gsub(HashTag::REGEX) if answer.present?
-    hashtags = hashtags.map { |match| match.delete("#").downcase }
-    hashtags.uniq!
-
-    self.tags = hashtags.map { |tag| HashTag.find_or_create_by(text: tag) }
+    self.tags =
+      "#{body} #{answer}".downcase.scan(HashTag::REGEX).uniq.map do |tag|
+        HashTag.find_or_create_by(text: tag)
+      end
   end
 end

@@ -1,11 +1,11 @@
 class HashTag < ApplicationRecord
-  has_many :question_tags
+  has_many :question_tags, dependent: :delete_all
   has_many :questions, through: :question_tags, source: :question
 
-  REGEX = /(#[[:alpha:]][[:word:]]+)/
+  REGEX = /#[[:alpha:]][[:word:]]+/
 
   def to_s
-    "##{text}"
+    text
   end
 
   def to_param
