@@ -1,5 +1,5 @@
 <% split_lines(block).each do |line| %>
   <p>
-    <%= sanitize parse_tags(line), tags: %w(a), attributes: %w(href) %>
+    <%= sanitize parse_tags(line), tags: %w(a), attributes: %w(href class) %>
   </p>
 <% end %>

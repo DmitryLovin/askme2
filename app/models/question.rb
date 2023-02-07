@@ -14,8 +14,6 @@ class Question < ApplicationRecord
   private
 
   def save_new_tags
-    self.tags.clear if self.tags.any?
-
     self.tags =
       "#{body} #{answer}".downcase.scan(HashTag::REGEX).uniq.map do |tag|
         HashTag.find_or_create_by(text: tag)

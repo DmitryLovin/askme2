@@ -4,10 +4,6 @@ class HashTag < ApplicationRecord
 
   REGEX = /#[[:alpha:]][[:word:]]+/
 
-  def to_s
-    text
-  end
-
   def to_param
     text
   end
